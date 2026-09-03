@@ -1,19 +1,19 @@
 package com.senati.appsqlite;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Insets;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import com.senati.appsqlite.db.DbHelper;
 public class MainActivity extends AppCompatActivity {
     private Button btnCrear;
     @Override
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //llamamos a nuestra clase dbHelper
-                DbHelper dbHelper= new DbHelper(MainActivity.tthis);
+                DbHelper dbHelper= new DbHelper(MainActivity.this);
                 SQLiteDatabase db=dbHelper.getWritableDatabase();
                 if (db != null) {
                     Toast.makeText(MainActivity.this,"BASE DE DATOS CREADA", Toast.LENGTH_LONG).show();
